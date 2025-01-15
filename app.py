@@ -9,3 +9,4 @@ def index(): # creates a template
 
 if __name__ == "__main__": # reconfirm such that permissions are given
     app.run()
+    
