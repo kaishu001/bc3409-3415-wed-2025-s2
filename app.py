@@ -1,15 +1,20 @@
 from flask import Flask
-from flask import render_template,request
+from flask import render_template, request
 
-app = Flask(__name__) # confirm that application belongs to u
+app = Flask(__name__)
 
-@app.route("/") # always run the first line first 
-def index(): # creates a template
+@app.route("/", methods=["GET","POST"])
+def index():
     return(render_template("index.html"))
 
-@app.route("/") 
-def prediction(): 
+@app.route("/prediction", methods=["GET","POST"])
+def prediction():
     return(render_template("prediction.html"))
 
-if __name__ == "__main__": # reconfirm such that permissions are given
+@app.route("/predicted_DBS", methods=["GET","POST"])
+def predicted_DBS():
+    q = float(request.form.get("q"))
+    return(render_template("predicted_DBS.html", r=(-50.6*q)+90.2))
+
+if __name__ == "__main__":
     app.run()
