@@ -7,5 +7,9 @@ app = Flask(__name__) # confirm that application belongs to u
 def index(): # creates a template
     return(render_template("index.html"))
 
+@app.route("/") 
+def prediction(): 
+    return(render_template("prediction.html"))
+
 if __name__ == "__main__": # reconfirm such that permissions are given
     app.run()
